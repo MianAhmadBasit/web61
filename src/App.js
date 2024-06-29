@@ -4,13 +4,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 
 function App() {
-  const [data, setData] = useState([""])
+  const [data, setData] = useState([" "])
+
   const [firstName, setFirstname] = useState("")
   const [lastName, setLastname] = useState("")
   const [age, setAge] = useState(0)
+  
   const [id, setId] = useState(0)
+
+
   const [update, setUpdate] = useState(false)
   console.log(update);
+
 
 
   useEffect(() => {
@@ -40,8 +45,10 @@ function App() {
       }
     }
   }
+
 // for save
   const handleSave = (e) => {
+    
     let error = '' ; 
     if(firstName === '')
     error += `first name is requierd`
@@ -53,7 +60,9 @@ function App() {
 
     alert("Record Saved");
   e.preventDefault();
+
   const dt =[...data];
+  
   const newObject = {
   
     id:Data.length+1,
@@ -116,7 +125,7 @@ function App() {
 
         <div>
 {/* logic update save btn */}
-          {
+          { 
             !update ?
 
               <button className="btn btn-primary" onClick={(e) => handleSave(e)}>Save </button> :
